@@ -1,49 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Bitcoin</title>
-    <style>
-        div {
-            font-size: 175%;
-            padding-right: 45px;
-            padding-left: 45px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic Page with Modal</title>
+<style>
+/* Styles for the modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
-<div>
-    <h1>Bitcoin</h1>
-    <h4>By: Mohammed Uddin</h6>
-    <img src="https://bitcoin.org/img/icons/opengraph.png?1664356125">
+
+<!-- Button to open the modal -->
+<button onclick="openModal()">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <p>This is a basic modal!</p>
+  </div>
+
 </div>
-<div>
-    <h4>A brief history of digital currencies</h4>
-    <p>
-        Prior to Bitcoin E-gold came into existense to meet the need of a "private" elecontronic currency. As it was the first of it's time and made in 1996 the creators 
-        were not totally prepared for what might come from it's usage. E-gold found itself being used a currency for activities the government wasn't so fond of. As the government knew who the creators of the currency were
-        they were able to order the creators to shut the entire thing down.
-        
-        "Satoshi Nakamoto", a pseudonym, would not make this mistake. Satoshi dreamed of a decentralized currency. One where you did not have to acquire from some central agency/authority. 
-        One that would allow it's users to maintain anonymity and keep prying eyes away from their purchasing habits.
-        
-        Initially Bitcoin was easy to acquire through mining it via computer. As time passed the difficulty of mining icnreasing, today it is near impossible to mine a siginificant amount without icredibly computing power, 
-        Much like E-gold bitcoin was also used for some not very legal activities and the overwhelming majority of users were able to maintain their privacy through its use.
-    </p>
-    
-    <h4>Is Bitcoin truly decentralized, private, and unregulatable?</h4>
-    <p>
-        One of the properties of Bitcoin touted by its proponents is that it is decentralized. Meaning that large entities do not control the currency. For example,
-        the dollar is not decentralized as the US Government is able to control the amount of it in circulation in addition to where it is in circulation. If you want to acquire dollars it all eventuall leads back to banks which eventually lead back to the government. 
-        Bitcoin on the other hand can be mined by people and acquired in a peer to peer manner. While in theory this is all correct and Bitcoin could potentiall behave this way 
-        the waters are far muddier in reality. Many people are acquiring Bitcoin through "central banks" like Coinbase. Coinbase reports the identities of buyers and sellers to the government. 
-        This allows the government to add regulations just as they would to a centralized currency. In addition a large proportion of Bitcoin is hoarded by whales, large investors, typically institutions,
-    </p>
-    
-    <h4>References</h4>
-    <a href="https://cs.stanford.edu/people/eroberts/cs181/projects/2010-11/Bitcoins/e-gold.html">Standford: E-Gold</a></br>
-    <a href="https://www.benzinga.com/money/is-bitcoin-actually-decentralized">Benzinga: Bitcoin Decentralized?</a></br>
-    <a href="https://www.forbes.com/advisor/investing/cryptocurrency/what-is-bitcoin/#:~:text=In%20the%20U.S.%2C%20people%20generally,that%20accept%20the%20original%20crypto.">How Bitcoin is Actually Used</a></br>
-</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Function to open the modal
+function openModal() {
+  modal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+  modal.style.display = "none";
+}
+
+// Close the modal if user clicks outside of it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
 </body>
 </html>
