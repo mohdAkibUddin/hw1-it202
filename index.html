@@ -7,7 +7,7 @@
 <style>
 /* Styles for the modal */
 .modal {
-  display: none; /* Hidden by default */
+  display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -49,17 +49,10 @@
 <button onclick="openModal()">Open Modal</button>
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <p>This is a basic modal!</p>
-    <input type="text" id="modalInput" placeholder="Enter text here...">
-    <button id="submitBtn">Submit</button>
-  </div>
+<div id="inject-here">
 
 </div>
+
 
 <script>
 // Get the modal
@@ -67,7 +60,8 @@ var modal = document.getElementById("myModal");
 
 // Function to open the modal
 function openModal() {
-  modal.style.display = "block";
+  document.getElementById("inject-here").innerHTML = 
+'<div id="myModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal()">&times;</span><p>This is a basic modal!</p><input type="text" id="modalInput" placeholder="Enter text here..."><button id="submitBtn">Submit</button></div></div>'
 }
 
 // Function to close the modal
