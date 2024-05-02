@@ -7,7 +7,7 @@
 <style>
 /* Styles for the modal */
 .modal {
-  display: block; /* Hidden by default */
+  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -49,42 +49,46 @@
 <button onclick="openModal()">Open Modal</button>
 
 <!-- The Modal -->
-<div id="inject-here">
-
-</div>
-
+<div id="inject-here"></div>
 
 <script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
 // Function to open the modal
 function openModal() {
   document.getElementById("inject-here").innerHTML = 
-'<div id="myModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal()">&times;</span><p>This is a basic modal!</p><input type="text" id="modalInput" placeholder="Enter text here..."><button id="submitBtn">Submit</button></div></div>'
+    '<div id="myModal" class="modal">' +
+    '<div class="modal-content">' +
+    '<span class="close" onclick="closeModal()">Close</span>' +
+    '<p>This is a basic modal!</p>' +
+    '<input type="text" id="modalInput" placeholder="Enter text here...">' +
+    '<button id="submitBtn">Submit</button>' +
+    '</div></div>';
+
+  // Display the modal
+  var modal = document.getElementById("myModal");
+  modal.style.display = "block";
 }
 
 // Function to close the modal
 function closeModal() {
+  var modal = document.getElementById("myModal");
   modal.style.display = "none";
 }
 
-// Close the modal when clicking the close button
-var closeBtn = document.querySelector(".close");
-closeBtn.addEventListener("click", closeModal);
-
 // Close the modal if user clicks outside of it
 window.addEventListener("click", function(event) {
+  var modal = document.getElementById("myModal");
   if (event.target == modal) {
     closeModal();
   }
 });
 
 // Click event listener for the Submit button
-document.getElementById("submitBtn").addEventListener("click", function() {
-  // You can add your logic here for handling the submission
-  // For this example, let's just close the modal
-  closeModal();
+document.addEventListener("click", function(event) {
+  if (event.target && event.target.id == "submitBtn") {
+    // You can add your logic here for handling the submission
+    // For this example, let's just close the modal
+    closeModal();
+  }
 });
 </script>
 
